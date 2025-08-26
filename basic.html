@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dubai Property Listings</title>
+  <style>
+    /* Reset and basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: rgba(44, 62, 80, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav .logo:hover {
+      color: #3498db;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    nav ul li a:hover {
+      background: linear-gradient(45deg, #3498db, #2980b9);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    }
+    nav ul li a.active {
+      background: linear-gradient(45deg, #e74c3c, #c0392b);
+      transform: scale(1.05);
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Content sections */
+    .content-section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .content-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Headings */
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    h2 {
+      color: white;
+      margin: 2rem 0 1rem 0;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* Welcome text */
+    .welcome-text {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: white;
+      font-size: 1.1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Locations list */
+    .locations-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding-left: 0;
+    }
+    .locations-list li {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 12px;
+      list-style-type: none;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .locations-list li:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.3);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Property Cards */
+    .property-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+    }
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.2);
+    }
+    .property-title {
+      font-size: 1.3rem;
+      color: #ecf0f1;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .property-price {
+      color: #f39c12;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .status-available {
+      color: #2ecc71;
+      font-weight: bold;
+    }
+    .status-rented {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    /* About and Contact Sections */
+    .about-section, .contact-section {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-bottom: 1.5rem;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Filter buttons */
+    .filter-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .filter-btn {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(45deg, #3498db, #2980b9);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    }
+
+    /* Loading spinner */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .spinner {
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(44, 62, 80, 0.95);
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 0 0 12px 12px;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+      .locations-list {
+        grid-template-columns: 1fr;
+      }
+      .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="logo">DubaiListings.com</a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="nav-menu">
+      <li><a href="#" onclick="showSection('home')" class="nav-link active">Home</a></li>
+      <li><a href="#" onclick="showSection('properties')" class="nav-link">Properties</a></li>
+      <li><a href="#" onclick="showSection('locations')" class="nav-link">Locations</a></li>
+      <li><a href="#" onclick="showSection('about')" class="nav-link">About</a></li>
+      <li><a href="#" onclick="showSection('contact')" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Loading indicator -->
+  <div id="loading-indicator" class="loading">
+    <div class="spinner"></div>
+    Loading property data...
+  </div>
+
+  <!-- Home Section -->
+  <section id="home" class="content-section active" style="display: none;">
+    <h1>Dubai Property Listings</h1>
+    <div class="welcome-text" id="welcome-text">
+      <!-- Welcome text will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="locations" class="content-section">
+    <h2>Explore Properties in Top Locations:</h2>
+    <ul class="locations-list" id="locations-list">
+      <!-- Locations will be populated by JavaScript -->
+    </ul>
+  </section>
+
+  <!-- Properties Section -->
+  <section id="properties" class="content-section">
+    <h2>Popular Listings</h2>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterProperties('all')">All Properties</button>
+      <button class="filter-btn" onclick="filterProperties('available')">Available</button>
+      <button class="filter-btn" onclick="filterProperties('rented')">Rented</button>
+      <button class="filter-btn" onclick="filterProperties('apartment')">Apartments</button>
+      <button class="filter-btn" onclick="filterProperties('villa')">Villas</button>
+    </div>
+
+    <div id="properties-list">
+      <!-- Properties will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="content-section">
+    <div class="about-section">
+      <h2>About Us</h2>
+      <p id="about-text">
+        <!-- About text will be populated by JavaScript -->
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="content-section">
+    <div class="contact-section">
+      <h2>Contact Information</h2>
+      <div id="contact-info">
+        <!-- Contact info will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Include external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
+

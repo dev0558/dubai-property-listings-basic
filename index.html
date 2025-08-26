@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dubai Property Listings</title>
+  <style>
+    /* Reset and basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: powderblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #2c3e50;
+      padding: 1rem 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    nav ul li a:hover {
+      background-color: #34495e;
+    }
+
+    /* Headings */
+    h1 {
+      color: red;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      color: darkblue;
+      margin: 2rem 0 1rem 0;
+    }
+
+    /* Welcome text */
+    .welcome-text {
+      color: green;
+      background-color: rgba(255,255,255,0.3);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Locations list */
+    .locations-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-left: 0;
+    }
+    .locations-list li {
+      background-color: rgba(255,255,255,0.5);
+      padding: 0.5rem;
+      border-radius: 5px;
+      list-style-type: none;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Property Cards */
+    .property-card {
+      background-color: rgba(255,255,255,0.8);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .property-title {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .property-price {
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .status-available {
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .status-rented {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    /* About and Contact Sections */
+    .about-section, .contact-section {
+      background-color: rgba(255,255,255,0.6);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .locations-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="logo">DubaiListings.com</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <section id="home">
+    <h1>Dubai Property Listings</h1>
+    <p class="welcome-text">
+      Welcome to DubaiListings.com — your trusted platform for finding verified residential and commercial properties across Dubai. Whether you're looking to rent or buy, we bring you the most up-to-date listings with all the information you need.
+    </p>
+  </section>
+
+  <section id="locations">
+    <h2>Explore Properties in Top Locations:</h2>
+    <ul class="locations-list">
+      <li>Jumeirah Village Circle (JVC)</li>
+      <li>Dubai Marina</li>
+      <li>Business Bay</li>
+      <li>Downtown Dubai</li>
+      <li>Palm Jumeirah</li>
+      <li>Al Barsha</li>
+    </ul>
+  </section>
+
+  <section id="properties">
+    <h2>Popular Listings</h2>
+
+    <div class="property-card">
+      <div class="property-title">2BHK Apartment in JVC</div>
+      <p><strong>Location:</strong> Jumeirah Village Circle</p>
+      <p class="property-price">Price: AED 65,000/year</p>
+      <p><strong>Bedrooms:</strong> 2</p>
+      <p><strong>Type:</strong> Apartment</p>
+      <p><strong>Status:</strong> <span class="status-available">Available</span></p>
+    </div>
+
+    <div class="property-card">
+      <div class="property-title">Studio in Dubai Marina</div>
+      <p><strong>Location:</strong> Dubai Marina</p>
+      <p class="property-price">Price: AED 45,000/year</p>
+      <p><strong>Bedrooms:</strong> 1</p>
+      <p><strong>Type:</strong> Studio</p>
+      <p><strong>Status:</strong> <span class="status-rented">Rented</span></p>
+    </div>
+
+    <div class="property-card">
+      <div class="property-title">3BHK Villa in Mirdif</div>
+      <p><strong>Location:</strong> Mirdif</p>
+      <p class="property-price">Price: AED 120,000/year</p>
+      <p><strong>Bedrooms:</strong> 3</p>
+      <p><strong>Type:</strong> Villa</p>
+      <p><strong>Status:</strong> <span class="status-available">Available</span></p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about-section">
+      <h2>About Us</h2>
+      <p>
+        DubaiListings.com was founded with the mission to simplify real estate for everyone.
+        We work with verified agents and developers to offer accurate, up-to-date, and honest listings.
+        Our platform is designed to be user-friendly, secure, and transparent.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-section">
+      <h2>Contact Information</h2>
+      <p>
+        <strong>Email:</strong> support@dubailistings.com<br />
+        <strong>Phone:</strong> +971 55 123 4567<br />
+        <strong>Location:</strong> Dubai Internet City, UAE
+      </p>
+    </div>
+  </section>
+</body>
+</html>
+
+

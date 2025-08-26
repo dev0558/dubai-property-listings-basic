@@ -1,0 +1,44 @@
+{
+    "welcomeText": "Welcome to DubaiListings.com — your trusted platform for finding verified residential and commercial properties across Dubai. Whether you're looking to rent or buy, we bring you the most up-to-date listings with all the information you need.",
+    "locations": [
+      "Jumeirah Village Circle (JVC)",
+      "Dubai Marina",
+      "Business Bay",
+      "Downtown Dubai",
+      "Palm Jumeirah",
+      "Al Barsha"
+    ],
+    "properties": [
+      {
+        "title": "2BHK Apartment in JVC",
+        "location": "Jumeirah Village Circle",
+        "price": "AED 65,000/year",
+        "bedrooms": 2,
+        "type": "Apartment",
+        "status": "Available"
+      },
+      {
+        "title": "Studio in Dubai Marina",
+        "location": "Dubai Marina",
+        "price": "AED 45,000/year",
+        "bedrooms": 1,
+        "type": "Studio",
+        "status": "Rented"
+      },
+      {
+        "title": "3BHK Villa in Mirdif",
+        "location": "Mirdif",
+        "price": "AED 120,000/year",
+        "bedrooms": 3,
+        "type": "Villa",
+        "status": "Available"
+      }
+    ],
+    "about": "DubaiListings.com was founded with the mission to simplify real estate for everyone. We work with verified agents and developers to offer accurate, up-to-date, and honest listings. Our platform is designed to be user-friendly, secure, and transparent.",
+    "contact": {
+      "email": "support@dubailistings.com",
+      "phone": "+971 55 123 4567",
+      "location": "Dubai Internet City, UAE"
+    }
+  }
+  

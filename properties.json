@@ -1,0 +1,154 @@
+{
+  "website_info": {
+    "name": "DubaiListings.com",
+    "description": "Your trusted platform for finding verified residential and commercial properties across Dubai",
+    "contact": {
+      "email": "support@dubailistings.com",
+      "phone": "+971 55 123 4567",
+      "address": "Dubai Internet City, UAE"
+    }
+  },
+  "locations": [
+    {
+      "id": 1,
+      "name": "Jumeirah Village Circle (JVC)",
+      "short_name": "JVC",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Dubai Marina",
+      "short_name": "Dubai Marina",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Business Bay",
+      "short_name": "Business Bay",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Downtown Dubai",
+      "short_name": "Downtown",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Palm Jumeirah",
+      "short_name": "Palm Jumeirah",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Al Barsha",
+      "short_name": "Al Barsha",
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Mirdif",
+      "short_name": "Mirdif",
+      "active": true
+    }
+  ],
+  "properties": [
+    {
+      "id": 1,
+      "title": "2BHK Apartment in JVC",
+      "location": "Jumeirah Village Circle",
+      "location_id": 1,
+      "price": {
+        "amount": 65000,
+        "currency": "AED",
+        "period": "year"
+      },
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "type": "Apartment",
+      "status": "Available",
+      "area_sqft": 1200,
+      "features": [
+        "Balcony",
+        "Swimming Pool Access",
+        "Gym",
+        "Parking"
+      ],
+      "listing_date": "2025-08-01",
+      "agent_contact": "+971 55 987 6543"
+    },
+    {
+      "id": 2,
+      "title": "Studio in Dubai Marina",
+      "location": "Dubai Marina",
+      "location_id": 2,
+      "price": {
+        "amount": 45000,
+        "currency": "AED",
+        "period": "year"
+      },
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "type": "Studio",
+      "status": "Rented",
+      "area_sqft": 500,
+      "features": [
+        "Marina View",
+        "Furnished",
+        "Swimming Pool",
+        "24/7 Security"
+      ],
+      "listing_date": "2025-07-15",
+      "agent_contact": "+971 55 876 5432"
+    },
+    {
+      "id": 3,
+      "title": "3BHK Villa in Mirdif",
+      "location": "Mirdif",
+      "location_id": 7,
+      "price": {
+        "amount": 120000,
+        "currency": "AED",
+        "period": "year"
+      },
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "type": "Villa",
+      "status": "Available",
+      "area_sqft": 2500,
+      "features": [
+        "Private Garden",
+        "Garage",
+        "Maid's Room",
+        "Community Pool",
+        "Playground"
+      ],
+      "listing_date": "2025-08-05",
+      "agent_contact": "+971 55 765 4321"
+    }
+  ],
+  "property_types": [
+    {
+      "type": "Apartment",
+      "count": 1
+    },
+    {
+      "type": "Studio",
+      "count": 1
+    },
+    {
+      "type": "Villa",
+      "count": 1
+    }
+  ],
+  "status_types": [
+    {
+      "status": "Available",
+      "count": 2
+    },
+    {
+      "status": "Rented",
+      "count": 1
+    }
+  ]
+}
