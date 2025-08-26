@@ -1,0 +1,6 @@
+#Folder Structure 
+dubai-property-listings-basic/
+│── index.html
+│── style.css
+│── data.json
+│── README.md
